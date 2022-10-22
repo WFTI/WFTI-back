@@ -1,10 +1,21 @@
 package com.woori.wfti.db.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Getter
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
     // 공통 속성 엔티티 (식별값 SRNO, 생성일자 RGS_DH, 변경일자 CHG_DH)
 
+    @CreatedDate
+    private LocalDateTime rgsDh;
+    @LastModifiedDate
+    private LocalDateTime chgDh;
 }

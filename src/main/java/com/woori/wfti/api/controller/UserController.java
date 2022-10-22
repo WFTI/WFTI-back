@@ -28,8 +28,8 @@ public class UserController {
     @PostMapping("user")
     public UserEntity createUser() {
         final UserEntity user = UserEntity.builder()
-                .userEmpNo("20201464")
-                .userNm("오승철")
+                .userEmpNo("20201473")
+                .userNm("최지웅")
                 .build();
         return userRepository.save(user);
     }

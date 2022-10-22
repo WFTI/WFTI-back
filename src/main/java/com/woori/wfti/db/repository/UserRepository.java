@@ -11,5 +11,4 @@ import org.springframework.stereotype.Repository;
 //JpaRepository 상속받으면서 제네릭에 사용할 entity와 ID타입이 될 수 있는 클래스
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-
 }
