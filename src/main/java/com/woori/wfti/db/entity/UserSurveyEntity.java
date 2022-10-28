@@ -14,8 +14,10 @@ public class UserSurveyEntity extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userSrno;
+    private Long rowId;
 
+    @Column(nullable = false)
+    private Long userSrno;
     @Column(nullable = false)
     private Long subjSrno;
 

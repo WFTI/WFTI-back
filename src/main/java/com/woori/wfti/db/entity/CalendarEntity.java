@@ -26,7 +26,7 @@ public class CalendarEntity extends BaseEntity{
     @Column
     private String clubPlc;
     @Column
-    private String blucCst;
+    private String clubCst;
     @Column
     private String calDescTxt;
     @Column

@@ -18,12 +18,12 @@ public class ClubEntity extends BaseEntity {
 
     @Column(nullable = false)
     private Long rgsUserSrno;
+    @Column(nullable = false)
+    private Long chgUserSrno;
 
     @Column(nullable = false)
     private String clubNm;
     @Column(nullable = false)
     private String clubDescTxt;
-    @Column
-    private Long chgUserSrno;
 
 }

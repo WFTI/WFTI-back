@@ -33,7 +33,7 @@ public class ClubController {
     @PostMapping("club")
     public ClubEntity createClub() {
         final ClubEntity user = ClubEntity.builder()
-                .rgsUserSrno(1)
+                .rgsUserSrno(2L)
                 .clubNm("클럽1")
                 .build();
         return clubRepository.save(user);

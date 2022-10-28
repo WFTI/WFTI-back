@@ -20,13 +20,13 @@ public class ChatEntity extends BaseEntity{
     private Long clubSrno;
     @Column(nullable = false)
     private Long calSrno;
+    @Column(nullable = false)
+    private Long rgsUserSrno;
 
     @Column
     private String chatUrl;
     @Column
     private Boolean useYn;
-    @Column
-    private Long rgsUsrSrno;
     @Column
     private String clubCst;
     @Column

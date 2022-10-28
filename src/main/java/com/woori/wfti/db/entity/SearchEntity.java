@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity(name="search_th")    //테이블명
 @Getter
@@ -23,6 +22,6 @@ public class SearchEntity extends BaseEntity{
     @Column
     private LocalDateTime srchDh;
     @Column
-    private Set<String> srchWrd;
+    private String srchWrd;
 
 }

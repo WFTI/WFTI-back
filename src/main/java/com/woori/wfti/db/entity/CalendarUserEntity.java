@@ -18,7 +18,6 @@ public class CalendarUserEntity extends BaseEntity{
 
     @Column(nullable = false)
     private Long calSrno;
-
     @Column(nullable = false)
     private Long userSrno;
 

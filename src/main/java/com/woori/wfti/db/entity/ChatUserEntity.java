@@ -17,7 +17,7 @@ public class ChatUserEntity extends BaseEntity{
     private String rowId;
 
     @Column(nullable = false)
-    private Long chat;
+    private Long chatSrno;
 
     @Column
     private Boolean useYn;
