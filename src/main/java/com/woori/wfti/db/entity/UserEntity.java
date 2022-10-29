@@ -28,5 +28,9 @@ public class UserEntity extends BaseEntity{
     private LocalDateTime lstSginDh;
     @Column
     private Boolean LginYn;
+    @Column
+    private LocalDateTime rgsDh;
+    @Column
+    private LocalDateTime chgDh;
 
 }

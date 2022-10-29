@@ -1,11 +1,11 @@
 package com.woori.wfti.api.controller;
 
-import com.woori.wfti.api.service.ChatService;
 import com.woori.wfti.api.service.UserService;
 import com.woori.wfti.db.entity.UserEntity;
-import com.woori.wfti.db.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class UserController {
      * @return
      * @throws
      */
-    @GetMapping("selectAll")
+    @GetMapping("selectUsers")
     public List<UserEntity> findAllUser() {
 
         return userService.getUsers();
@@ -30,15 +30,18 @@ public class UserController {
 
     /**
      * 새로운 회원 등록
-     * @return
+     * @return 생성된 새로운 회원 정보
      * @throws
      */
     @PostMapping("createUser")
-    public UserEntity createUser() {
-        final UserEntity user = UserEntity.builder()
-                .userEmpNo("20201473")
-                .userNm("최지웅")
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity requestUser) {
+        final UserEntity responseUser = UserEntity.builder()
+                .userEmpNo(requestUser.getUserEmpNo()) // 사번
+                .userNm(requestUser.getUserNm()) // 이름
+                .userPw(requestUser.getUserPw()) // 비밀번호
+                .lstSginDh(requestUser.getLstSginDh()) // 마지막 로그인 일시
+                .LginYn(requestUser.getLginYn()) // 로그인 여부
                 .build();
-        return userService.createUser(user);
+        return new ResponseEntity<>(userService.createUser(responseUser), HttpStatus.OK);
     }
 }

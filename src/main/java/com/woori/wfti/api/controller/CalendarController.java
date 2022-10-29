@@ -18,19 +18,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalendarController {
     @Autowired
     private CalendarService calendarService;
+
     /**
-     * 새로운 일정에 따른 채팅방 등록
-     * @return
+     * 새로운 일정 등록
+     * @return 생성된 일정 정보, http status
      * @throws
      */
     @PostMapping("createCalendar")
     public ResponseEntity<CalendarEntity> createCalendar(@RequestBody CalendarEntity requestCalendar) {
-        ChatEntity responseChat = ChatEntity.builder()
-                .chatSrno(1L) // 채팅방일련번호
-                .clubSrno(1L) // 소모임일련번호
-                .calSrno(1L) // 일정일련번호
+        CalendarEntity responseCalendar = CalendarEntity.builder()
+                .clubSrno(requestCalendar.getClubSrno()) // 소모임 일련번호
+                .calDescTxt(requestCalendar.getCalDescTxt()) // 소모임 설명
+                .clubCst(requestCalendar.getClubCst()) // 일정 비용
+                .clubPlc(requestCalendar.getClubPlc()) // 일정 장소
+                .stDh(requestCalendar.getStDh()) // 일정 시작일시
+                .edDh(requestCalendar.getEdDh()) // 일정 마감일시
+                .pubYn(requestCalendar.getPubYn()) // 공개일정여부
                 .build();
-        return new ResponseEntity<CalendarEntity>(calendarService.createCalendar(requestCalendar), HttpStatus.OK);
+        return new ResponseEntity<>(calendarService.createCalendar(responseCalendar), HttpStatus.OK);
     }
     
 }

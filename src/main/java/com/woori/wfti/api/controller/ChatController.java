@@ -20,16 +20,17 @@ public class ChatController {
 
     /**
      * 새로운 일정에 따른 채팅방 등록
-     * @return
+     * @return 새로운 일정에 대한 채팅방 정보
      * @throws
      */
     @PostMapping("createChat")
     public ResponseEntity<ChatEntity> createChat(@RequestBody ChatEntity requestChat) {
         ChatEntity responseChat = ChatEntity.builder()
-                .chatSrno(1L) // 채팅방일련번호
-                .clubSrno(1L) // 소모임일련번호
-                .calSrno(1L) // 일정일련번호
+                .clubSrno(requestChat.getClubSrno()) // 소모임일련번호
+                .calSrno(requestChat.getCalSrno()) // 일정일련번호
+                .chatUrl(requestChat.getChatUrl()) // 채팅 url
+                .useYn(requestChat.getUseYn()) // 사용여부(DELETE 없이 사용하지 않을 경우 N)
                 .build();
-        return new ResponseEntity<ChatEntity>(chatService.createChat(responseChat), HttpStatus.OK);
+        return new ResponseEntity<>(chatService.createChat(responseChat), HttpStatus.OK);
     }
 }

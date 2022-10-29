@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public class ClubUserEntity extends BaseEntity{
 
     @Id
-    @Column(name="ROW_ID")
-    private String rowId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long clubUserId;
 
     @Column(nullable = false)
     private Long clubSrno;
@@ -23,13 +23,11 @@ public class ClubUserEntity extends BaseEntity{
     private Long userSrno;
 
     @Column
-    private int userRole;   // Enum 으로 대체
+    private String userRole;
     @Column
-    private int userStsCd;
+    private String userStsCd;
     @Column
-    private LocalDateTime invtDh;
-    @Column
-    private LocalDateTime joinDh;
+    private LocalDateTime rgsDh;
     @Column
     private LocalDateTime QuitDh;
 

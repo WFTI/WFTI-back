@@ -3,6 +3,7 @@ package com.woori.wfti.db.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity(name="chat_tb")    //테이블명
 @Getter
@@ -28,8 +29,6 @@ public class ChatEntity extends BaseEntity{
     @Column
     private Boolean useYn;
     @Column
-    private String clubCst;
-    @Column
-    private String calDescTxt;
+    private LocalDateTime rgsDh;
 
 }

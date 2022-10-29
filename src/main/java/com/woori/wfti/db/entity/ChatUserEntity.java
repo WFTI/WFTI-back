@@ -14,13 +14,18 @@ import java.time.LocalDateTime;
 public class ChatUserEntity extends BaseEntity{
 
     @Id
-    @Column(name="ROW_ID")
-    private String rowId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long chatUserId;
 
     @Column(nullable = false)
     private Long chatSrno;
 
+    @Column(nullable = false)
+    private Long clubSrno;
+
     @Column
     private Boolean useYn;
+    @Column
+    private LocalDateTime rgsDh;
 
 }

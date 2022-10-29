@@ -15,7 +15,7 @@ public class UserSurveyEntity extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rowId;
+    private long userSurvId;
 
     @Column(nullable = false)
     private Long userSrno;
@@ -23,7 +23,7 @@ public class UserSurveyEntity extends BaseEntity{
     private Long subjSrno;
 
     @Column
-    private int likeScr;
+    private boolean likeScr;
     @Column
     private LocalDateTime survDh;
 

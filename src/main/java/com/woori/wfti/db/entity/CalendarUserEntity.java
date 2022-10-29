@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public class CalendarUserEntity extends BaseEntity{
 
     @Id
-    @Column(name="ROW_ID")
-    private String rowId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long calUserId;
 
     @Column(nullable = false)
     private Long calSrno;
@@ -23,12 +23,10 @@ public class CalendarUserEntity extends BaseEntity{
     private Long userSrno;
 
     @Column
-    private Boolean rgsYn;
+    private LocalDateTime rgsDh;
     @Column
-    private Boolean invtAccpYn;
+    private LocalDateTime quitDh;
     @Column
-    private LocalDateTime invtDh;
-    @Column
-    private LocalDateTime invtAccpDh;
+    private String userStsCd;
 
 }
