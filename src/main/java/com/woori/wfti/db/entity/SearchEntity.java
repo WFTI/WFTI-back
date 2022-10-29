@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Entity(name="search_th")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class SearchEntity extends BaseEntity{
 
     @Id

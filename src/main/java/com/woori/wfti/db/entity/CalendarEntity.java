@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Entity(name="calendar_ti")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class CalendarEntity extends BaseEntity{
 
     @Id
@@ -31,5 +32,4 @@ public class CalendarEntity extends BaseEntity{
     private String calDescTxt;
     @Column
     private Boolean pubYn;
-
 }

@@ -3,13 +3,13 @@ package com.woori.wfti.db.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity(name="chat_tb")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class ChatEntity extends BaseEntity{
 
     @Id

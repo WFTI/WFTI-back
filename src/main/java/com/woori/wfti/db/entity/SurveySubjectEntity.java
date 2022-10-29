@@ -8,9 +8,10 @@ import java.util.List;
 
 @Entity(name="survey_subject_ti")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class SurveySubjectEntity extends BaseEntity{
 
     @Id

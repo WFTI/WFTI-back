@@ -1,8 +1,11 @@
 package com.woori.wfti.api.controller;
 
+import com.woori.wfti.api.service.ChatService;
+import com.woori.wfti.api.service.UserService;
 import com.woori.wfti.db.entity.UserEntity;
 import com.woori.wfti.db.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,18 +14,24 @@ import java.util.List;
 @RequiredArgsConstructor    // final 객체를 Constructor 주입 해줌 (Autowired 역할)
 @RequestMapping("/v1/user")      // version 1 API
 public class UserController {
-    private final UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 
     /**
-     * 회원 조회
+     * 모든 회원조회
+     * @return
+     * @throws
      */
     @GetMapping("selectAll")
     public List<UserEntity> findAllUser() {
-        return userRepository.findAll();
+
+        return userService.getUsers();
     }
 
     /**
-     * 회원 등록 (테스트용)
+     * 새로운 회원 등록
+     * @return
+     * @throws
      */
     @PostMapping("createUser")
     public UserEntity createUser() {
@@ -30,6 +39,6 @@ public class UserController {
                 .userEmpNo("20201473")
                 .userNm("최지웅")
                 .build();
-        return userRepository.save(user);
+        return userService.createUser(user);
     }
 }

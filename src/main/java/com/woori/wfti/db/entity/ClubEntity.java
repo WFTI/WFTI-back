@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Entity(name="club_tb")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class ClubEntity extends BaseEntity {
 
     @Id

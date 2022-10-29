@@ -8,9 +8,10 @@ import java.time.LocalDateTime;
 
 @Entity(name="user_tb")    //테이블명
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class UserEntity extends BaseEntity{
 
     @Id
