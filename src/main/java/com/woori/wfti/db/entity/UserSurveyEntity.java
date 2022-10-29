@@ -1,31 +1,29 @@
 package com.woori.wfti.db.entity;
 
-import javax.persistence.*;
-
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name="user_tb")    //테이블명
+@Entity(name="user_survey_th")    //테이블명
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserEntity extends BaseEntity{
+public class UserSurveyEntity extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userSrno;
+    private Long rowId;
 
     @Column(nullable = false)
-    private String userEmpNo;
+    private Long userSrno;
     @Column(nullable = false)
-    private String userNm;
-    @Column(nullable = false)
-    private String userPw;
+    private Long subjSrno;
+
     @Column
-    private LocalDateTime lstSginDh;
+    private int likeScr;
     @Column
-    private Boolean LginYn;
+    private LocalDateTime survDh;
 
 }
